@@ -8,7 +8,7 @@ library(shiny)
 # to je jedine co musis zadat
 # NAZEV PROMENNE dir_  POVINNY
 # muzes zadat jeden adresar:
-dir_ = '~/Documents/smoderp-plot/test-data/data'
+dir_ = '~/Documents/Smoderp/smoderp-plot/test-data/data'
 # nebo nekolikt takto:
 # dir_ <- c("~/Documents/smoderp-plot/test-data/data",
 #           "~/Documents/smoderp-plot/test-data/data2")
