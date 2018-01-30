@@ -20,15 +20,16 @@ nactibod = function(dir_,sep_  = ';', skip_ = 3, extension_ = '*.dat')
 
 pp = function(t1,t2,sel,add_,sel2,od,do,stejny,titles)
   {
-  dd = which(od < t1$X..time.s. & t1$X..time.s. < do)
+  dd1 = which(od < t1$X..time.s. & t1$X..time.s. < do)
+  dd2 = which(od < t2$X..time.s. & t2$X..time.s. < do)
   if (stejny) {
-    r1 = range(t1[[sel]][dd],t2[[sel2]][dd],na.rm = TRUE)
+    r1 = range(t1[[sel]][dd1],t2[[sel2]][dd2],na.rm = TRUE)
     r1 = range(t1[[sel]],t2[[sel2]],na.rm = TRUE)
     r2 = r1
   } else {
-    r1 = range(t1[[sel]][dd],na.rm = TRUE)
+    r1 = range(t1[[sel]][dd1],na.rm = TRUE)
     r1 = range(t1[[sel]],na.rm = TRUE)
-    r2 = range(t2[[sel2]][dd],na.rm = TRUE)
+    r2 = range(t2[[sel2]][dd2],na.rm = TRUE)
     r2 = range(t2[[sel2]],na.rm = TRUE)
   }
   # print (c(r1,r2))
@@ -38,14 +39,14 @@ pp = function(t1,t2,sel,add_,sel2,od,do,stejny,titles)
   plot(t1$X..time.s.,t1[[sel]],
        ylab = '',type = 'o',lwd=2,xlim = c(od,do),ylim=r1,cex=0.5)
   grid()
-  mtext(paste(titles[1],":",sel),side = 3,line = 1,adj = 0,cex = 1.5)
+  mtext(paste(titles[1],":",sel),side = 3,line = 0.8,adj = 0,cex = 1.5)
   mtext(names1_[sel],side = 2,line = 3)
   if (add_) {
     par(new=TRUE)
-    plot(t1$X..time.s.,t2[[sel2]],
+    plot(t2$X..time.s.,t2[[sel2]],
          axes = FALSE, ylab = '',type = 'o',col=2,lwd=2,xlim = c(od,do),ylim=r2,cex=0.5)
     axis(4,col.ticks = 2, col = 2,col.axis=2)
-    mtext(paste(titles[2],":",sel2),side = 3,line = 1,adj = 1,cex = 1.5, col=2)
+    mtext(paste(titles[2],":",sel2),side = 3,line = 2,adj = 1,cex = 1.5, col=2)
     mtext(names2_[sel2],side = 4,line = 3,col = 2)
   }
 }

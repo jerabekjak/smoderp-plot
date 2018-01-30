@@ -11,12 +11,15 @@ rsplot <-  "~/Documents/Smoderp/smoderp-plot/rsplot"
 # cesta k datum
 dir_ = '~/Documents/Smoderp/smoderp/bash/test-out/out-konk01-krabice-velka/'
 
+dir_ = c('/tmp/out-konk01-krabice-velka/',
+         '/tmp/out-konv01-krabice-velka/')
+
 # vyber bodu (soubor .dat v adresari)
 # point000.dat -> id = 1
 # point001.dat -> id = 2
 # atd...
-id1_ = 2
-id2_ = 2
+id1_ = 7
+id2_ = 14
 #
 ############################################
 ######### konec nastaveni ##################
@@ -37,17 +40,21 @@ skip_ = 3
 extension_ = '*.dat'
 
 
+files  = c()
+for (idir_ in dir_) {
+  files = c(files,list.files(idir_,pattern = '*.dat',full.names = TRUE))
+}
 
 
-files = list.files(dir_,pattern = '*.dat')
-pixel = read.table(paste(dir_,'/',files[1],sep = ''),skip=2,nrows = 1,comment.char = '')
+pixel = read.table(paste(files[1],sep = ''),skip=2,nrows = 1,comment.char = '')
 pixel = as.numeric(pixel[2])
 H = list()
 for (file_ in files) {
   # print (file_)
   name_ = substr(file_,1,8)
+  name_ = file_
   
-  H[[name_]] = read.table(paste(dir_,'/',file_,sep = ''),sep = sep_,header = TRUE,skip=skip_,comment.char = '')
+  H[[name_]] = read.table(file_,sep = sep_,header = TRUE,skip=skip_,comment.char = '')
 }
 
 plot_(id1_,id2_)

@@ -13,6 +13,10 @@ dir_ = '~/Documents/Smoderp/smoderp-nazv/smoderp/out/'
 
 dir_ = '~/Documents/Smoderp/smoderp/bash/test-out/out-konk01-krabice-velka/'
 
+dir_ = '/tmp/out-konk01-krabice-velka/'
+       
+
+
 
 # nebo nekolikt takto:
 # dir_ <- c("~/Documents/Smoderp/smoderp/outnazv/",
