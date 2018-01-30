@@ -8,7 +8,7 @@ library(manipulate)
 library(calibrate)
 # s
 # cesta k datum
-data   <- "~/Documents/smoderp-plot/test-data/data"
+data   <- "~/Documents/Smoderp/smoderp-nazv/smoderp/out/"
 ############################################
 ######### konec nastaveni ##################
 ############################################
@@ -31,32 +31,14 @@ pp_ = function(i,j,dva,addpoints){
   if (dva) {
     par(mar=c(3,3,3,7))
     layout(matrix(c(1,2),ncol = 2))
-    if (i==7) {
-      pp_kategorie(D[[i]],files[i])
-    }else{
       plot(D[[i]],main=files[i])
-    }
     grid()
-    if (j==7) {
-      pp_kategorie(D[[j]],files[j])
-    }else{
       plot(D[[j]],main=files[j])
-    }
     grid()
   } else {
     layout(matrix(c(1),ncol = 1))
-    if (i==7) {
-      pp_kategorie(D[[i]],files[i])
-    }else{
-      # rr = range(as.array(D[[i]]),na.rm = TRUE)
-      # image(boundaries(D[[1]]))
-      # image(D[[i]],add=TRUE)
-      # image(D[[i]],breaks = seq(rr[1],rr[2],length=51), col=c(rgb(0.95,0.95,0.95),terrain.colors(60)[50:2]),main=files[i])
-      # image.plot(D[[1]], legend.only = TRUE,breaks = seq(rr[1],rr[2],length=51),  col=c(rgb(0.95,0.95,0.95),terrain.colors(60)[50:2]))
       plot(D[[i]],main=files[i])
-      # rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4],col = "black")
-      # plot(D[[i]],main=files[i])
-    }
+
     grid()
   }
   if (addpoints) {points(p$V2,p$V3)}

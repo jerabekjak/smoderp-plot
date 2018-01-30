@@ -8,10 +8,15 @@ library(shiny)
 # to je jedine co musis zadat
 # NAZEV PROMENNE dir_  POVINNY
 # muzes zadat jeden adresar:
-dir_ = '~/Documents/Smoderp/smoderp-plot/test-data/data'
+dir_ = '~/Documents/Smoderp/smoderp-nazv/smoderp/out/'
+
+
+dir_ = '~/Documents/Smoderp/smoderp/bash/test-out/out-konk01-krabice-velka/'
+
+
 # nebo nekolikt takto:
-# dir_ <- c("~/Documents/smoderp-plot/test-data/data",
-#           "~/Documents/smoderp-plot/test-data/data2")
+# dir_ <- c("~/Documents/Smoderp/smoderp/outnazv/",
+          # "~/Documents/Smoderp/smoderp-nazv/smoderp/out/")
 #
 # POZN. nevim jak to funguje
 # pokud by v jednom adresari byly 
@@ -76,7 +81,7 @@ pp = function(fil,fil2,var,var2,yr1,yr2,xr,stejne){
     axis(2)
     nvar   = min(3,length(var))
     for (i in 1:nvar){
-      lines(H[[fil]]$X..Time.s.,H[[fil]][[var[i]]],lty=i)
+      lines(H[[fil]]$X..time.s.,H[[fil]][[var[i]]],lty=i)
       mtext(fil,3,3,adj = 0)
       leglty = c(leglty,i)
       legcol = c(legcol,1)
@@ -90,7 +95,7 @@ pp = function(fil,fil2,var,var2,yr1,yr2,xr,stejne){
     }
     nvar2   = min(3,length(var2))
     for (i in 1:nvar2){
-      lines(H[[fil2]]$X..Time.s.,H[[fil2]][[var2[i]]],col = 2,lty=i)
+      lines(H[[fil2]]$X..time.s.,H[[fil2]][[var2[i]]],col = 2,lty=i)
       mtext(fil2,3,3,adj = 1,col=2)
       axis(4)
       leglty = c(leglty,i)
@@ -132,7 +137,7 @@ delejyr <- function(fil,fil2,var,var2,stejne) {
 plot_  = function(fil,fil2,var,var2,ranges = NULL, stejne){
   # pokud nezoomoju
   if (is.null(ranges)){
-    xr = range(H[[1]]$X..Time.s.)
+    xr = range(H[[1]]$X..time.s.)
     out = delejyr(fil,fil2,var,var2,stejne)
     yr1 = out[[1]]
     yr2 = out[[2]]

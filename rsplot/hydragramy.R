@@ -7,15 +7,16 @@ library('manipulate')
 # install.packages("manipulate")
 #
 # cesta ke R skriptum
-rsplot <-  "~/Documents/smoderp-plot/rsplot"
+rsplot <-  "~/Documents/Smoderp/smoderp-plot/rsplot"
 # cesta k datum
-data   <- "../test-data/data"
+dir_ = '~/Documents/Smoderp/smoderp/bash/test-out/out-konk01-krabice-velka/'
+
 # vyber bodu (soubor .dat v adresari)
 # point000.dat -> id = 1
 # point001.dat -> id = 2
 # atd...
-id1_ = 5
-id2_ = 5
+id1_ = 2
+id2_ = 2
 #
 ############################################
 ######### konec nastaveni ##################
@@ -30,7 +31,6 @@ setwd(rsplot)
 # nacita funkce pro tvorbu grafu
 source('hydragramy_fnc.R')
 
-dir_ = data
 
 sep_  = ';'
 skip_ = 3
